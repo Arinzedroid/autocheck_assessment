@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.arinzedroid.autochekassessment.model.MediaEntity" />
+
+        <variable
+            name="listener"
+            type="com.arinzedroid.autochekassessment.ui.ItemClickListener" />
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:onClick="@{() -> listener.onItem(item)}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/sample"
+                    app:loadImage="@{item.url}"
+                    android:id="@+id/image"
+                    android:scaleType="centerCrop"
+                    android:layout_width="0dp"
+                    android:layout_height="300dp"/>
+
+                <TextView
+                    android:text="@string/label_click_to_play"
+                    android:gravity="end|center"
+                    android:textColor="@color/white"
+                    android:paddingHorizontal="10dp"
+                    app:hideView="@{item.url}"
+                    android:background="@color/light_gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="20dp"/>
+
+    </LinearLayout>
+
+
+
+
+</layout>

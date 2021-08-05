@@ -1,0 +1,310 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "28478326add1406b768a90e502ba31e9",
+    "entities": [
+      {
+        "tableName": "StatsEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`appViewCount` INTEGER NOT NULL, `appViewerCount` INTEGER NOT NULL, `interestCount` INTEGER NOT NULL, `processedLoanCount` INTEGER NOT NULL, `testDriveCount` INTEGER NOT NULL, `webViewCount` INTEGER NOT NULL, `webViewerCount` INTEGER NOT NULL, `carId` TEXT NOT NULL, PRIMARY KEY(`carId`))",
+        "fields": [
+          {
+            "fieldPath": "appViewCount",
+            "columnName": "appViewCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "appViewerCount",
+            "columnName": "appViewerCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "interestCount",
+            "columnName": "interestCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "processedLoanCount",
+            "columnName": "processedLoanCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "testDriveCount",
+            "columnName": "testDriveCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "webViewCount",
+            "columnName": "webViewCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "webViewerCount",
+            "columnName": "webViewerCount",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "carId",
+            "columnName": "carId",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "carId"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "SearchCarEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`currentPage` INTEGER NOT NULL, `bodyTypeId` TEXT NOT NULL, `city` TEXT NOT NULL, `depositReceived` INTEGER NOT NULL, `gradeScore` REAL NOT NULL, `hasFinancing` INTEGER NOT NULL, `hasThreeDImage` INTEGER NOT NULL, `hasWarranty` INTEGER NOT NULL, `id` TEXT NOT NULL, `imageUrl` TEXT NOT NULL, `installment` REAL NOT NULL, `loanValue` REAL NOT NULL, `marketplaceOldPrice` REAL NOT NULL, `marketplacePrice` REAL NOT NULL, `mileage` REAL NOT NULL, `mileageUnit` TEXT NOT NULL, `sellingCondition` TEXT NOT NULL, `sold` INTEGER NOT NULL, `state` TEXT NOT NULL, `threeDImageUrl` TEXT NOT NULL, `title` TEXT NOT NULL, `websiteUrl` TEXT NOT NULL, `year` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "currentPage",
+            "columnName": "currentPage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bodyTypeId",
+            "columnName": "bodyTypeId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "city",
+            "columnName": "city",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "depositReceived",
+            "columnName": "depositReceived",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gradeScore",
+            "columnName": "gradeScore",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hasFinancing",
+            "columnName": "hasFinancing",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hasThreeDImage",
+            "columnName": "hasThreeDImage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hasWarranty",
+            "columnName": "hasWarranty",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imageUrl",
+            "columnName": "imageUrl",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "installment",
+            "columnName": "installment",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "loanValue",
+            "columnName": "loanValue",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "marketplaceOldPrice",
+            "columnName": "marketplaceOldPrice",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "marketplacePrice",
+            "columnName": "marketplacePrice",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mileage",
+            "columnName": "mileage",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mileageUnit",
+            "columnName": "mileageUnit",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sellingCondition",
+            "columnName": "sellingCondition",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sold",
+            "columnName": "sold",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "state",
+            "columnName": "state",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "threeDImageUrl",
+            "columnName": "threeDImageUrl",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "websiteUrl",
+            "columnName": "websiteUrl",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "year",
+            "columnName": "year",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "MediaEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`currentPage` INTEGER NOT NULL, `url` TEXT NOT NULL, `type` TEXT NOT NULL, `id` INTEGER NOT NULL, `carId` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "currentPage",
+            "columnName": "currentPage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "url",
+            "columnName": "url",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "carId",
+            "columnName": "carId",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "PopularCarEntity",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`currentPage` INTEGER NOT NULL, `id` INTEGER NOT NULL, `imageUrl` TEXT NOT NULL, `name` TEXT NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "currentPage",
+            "columnName": "currentPage",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imageUrl",
+            "columnName": "imageUrl",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '28478326add1406b768a90e502ba31e9')"
+    ]
+  }
+}

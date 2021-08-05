@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.arinzedroid.autochekassessment.model.SearchCarEntity" />
+        <variable
+            name="listener"
+            type="com.arinzedroid.autochekassessment.ui.ItemClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:onClick="@{() -> listener.onItem(item)}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <View
+            android:id="@+id/placeholder"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="14dp"
+            android:background="@drawable/home_bg_drawable"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/price_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline4"
+            />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/media_card"
+            android:layout_width="300dp"
+            android:layout_height="250dp"
+            app:cardBackgroundColor="@color/light_purple_2"
+            app:cardCornerRadius="16dp"
+            app:layout_constraintEnd_toEndOf="@id/placeholder"
+            app:layout_constraintStart_toStartOf="@+id/placeholder"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                app:loadImage="@{item.imageUrl}"
+                android:id="@+id/item_image"
+                tools:src="@drawable/sample"
+                android:scaleType="centerCrop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            tools:text="(5.0)"
+            android:layout_marginEnd="5dp"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:id="@+id/star_tv"
+            app:text="@{item.gradeScore}"
+            app:layout_constraintEnd_toEndOf="@+id/media_card"
+            app:layout_constraintTop_toBottomOf="@id/media_card"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RatingBar
+            app:layout_constraintEnd_toStartOf="@+id/star_tv"
+            app:layout_constraintTop_toTopOf="@+id/star_tv"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:id="@+id/star_rating"
+            android:transformPivotX="30dp"
+            android:progressTint="@color/light_yellow"
+            android:rating="1"
+            android:numStars="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/title_tv"
+            tools:text="Air Jordan 1 Mid"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:text="@{item.title}"
+            style="@style/AppTheme.TextAppearance.Bold"
+            app:layout_constraintTop_toTopOf="@id/star_tv"
+            app:layout_constraintStart_toStartOf="@+id/media_card"
+            app:layout_constraintEnd_toStartOf="@+id/star_rating"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            app:layout_constraintTop_toBottomOf="@+id/title_tv"
+            app:layout_constraintStart_toStartOf="@id/title_tv"
+            android:layout_marginTop="10dp"
+            android:id="@+id/model_tv"
+            android:text="@{item.id}"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="NIKE"
+            android:textColor="@color/light_gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/price_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:setPrice="@{item.marketplacePrice}"
+            android:paddingBottom="40dp"
+            style="@style/AppTheme.TextAppearance.Bold"
+            app:layout_constraintEnd_toStartOf="@+id/add_fab"
+            app:layout_constraintStart_toStartOf="@id/model_tv"
+            app:layout_constraintTop_toBottomOf="@+id/model_tv"
+            app:layout_constraintBottom_toBottomOf="@+id/placeholder"
+            tools:text="N11.457" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            app:layout_constraintEnd_toEndOf="@+id/star_tv"
+            app:layout_constraintTop_toTopOf="@+id/model_tv"
+            android:id="@+id/add_fab"
+            app:disableView="@{item.sold}"
+            android:onClick="@{() -> listener.onItem(item)}"
+            android:src="@drawable/ic_baseline_add"
+            android:backgroundTint="@color/light_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.24" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

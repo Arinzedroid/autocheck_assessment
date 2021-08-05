@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="listener"
+            type="com.arinzedroid.autochekassessment.ui.ItemClickListener" />
+
+    </data>
+
+    <FrameLayout
+        android:orientation="vertical"
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.mediaPlayer.MediaPlayerFragment">
+
+        <VideoView
+            android:layout_gravity="center"
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:keepScreenOn="true" />
+
+        <TextView
+            style="@style/AppTheme.TextAppearance.Bold"
+            app:drawableStartCompat="@drawable/ic_baseline_arrow_back"
+            android:text="@string/label_back"
+            android:drawablePadding="20dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:padding="20dp"
+            android:textColor="@color/white"
+            android:onClick="@{() -> listener.onItem(null)}"
+            android:id="@+id/header_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foreground="?android:attr/selectableItemBackground"
+            tools:ignore="UnusedAttribute" />
+
+    </FrameLayout>
+</layout>

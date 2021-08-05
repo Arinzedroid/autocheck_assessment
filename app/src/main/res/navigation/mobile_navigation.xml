@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.arinzedroid.autochekassessment.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.arinzedroid.autochekassessment.ui.product.CarDetailsFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_car_detail" >
+        <argument
+            android:name="carId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="carTitle"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_navigation_dashboard_to_navigation_media"
+            app:destination="@id/navigation_media" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_media"
+        android:name="com.arinzedroid.autochekassessment.ui.media.MediaFragment"
+        android:label="@string/label_media_title"
+        tools:layout="@layout/fragment_media" >
+        <argument
+            android:name="carId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="carTitle"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_navigation_media_to_navigation_player"
+            app:destination="@id/navigation_player" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_player"
+        android:name="com.arinzedroid.autochekassessment.ui.mediaPlayer.MediaPlayerFragment"
+        android:label="Media Player"
+        tools:layout="@layout/fragment_media_player">
+        <argument
+            android:name="mediaUrl"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+</navigation>

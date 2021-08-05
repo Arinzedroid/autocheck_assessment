@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.arinzedroid.autochekassessment.model.CarDetailResponse" />
+        <variable
+            name="listener"
+            type="com.arinzedroid.autochekassessment.ui.ProductDetailClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:paddingVertical="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.product.CarDetailsFragment">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:paddingBottom="100dp"
+                android:paddingHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    style="@style/AppTheme.TextAppearance.Bold"
+                    app:drawableStartCompat="@drawable/ic_baseline_arrow_back"
+                    android:text="@string/label_car_detail"
+                    android:drawablePadding="20dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:padding="5dp"
+                    android:onClick="@{() -> listener.onGoBack()}"
+                    android:id="@+id/header_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    tools:ignore="UnusedAttribute" />
+
+                <ImageView
+                    android:padding="5dp"
+                    app:srcCompat="@drawable/ic_shopping_cart_light"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    style="@style/AppTheme.TextAppearance.Bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/header_title"
+                    android:layout_marginTop="30dp"
+                    android:textSize="27sp"
+                    android:textStyle="bold"
+                    android:text="@{item.title}"
+                    android:id="@+id/title_tv"
+                    tools:text="Nike Air Max"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/media_card"
+                    android:layout_width="0dp"
+                    android:layout_height="250dp"
+                    android:layout_marginTop="20dp"
+                    app:cardBackgroundColor="@color/light_purple_2"
+                    app:cardCornerRadius="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title_tv">
+
+                    <ImageView
+                        android:id="@+id/item_image"
+                        tools:src="@drawable/sample"
+                        android:scaleType="centerCrop"
+                        app:loadImage="@{item.imageUrl}"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/media_card"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintEnd_toStartOf="@+id/address_tv"
+                    tools:text="1000 miles"
+                    app:millage="@{item.mileage}"
+                    app:millageUnit="@{item.mileageUnit}"
+                    android:drawablePadding="5dp"
+                    app:drawableStartCompat="@drawable/ic_speedometer"
+                    android:gravity="start|bottom"
+                    android:id="@+id/millage_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_marginHorizontal="9dp"
+                    app:layout_constraintStart_toEndOf="@+id/millage_tv"
+                    app:layout_constraintTop_toTopOf="@+id/millage_tv"
+                    app:layout_constraintEnd_toStartOf="@+id/condition_tv"
+                    tools:text="lagos, lagos"
+                    android:text="@{item.city + `, ` + item.country}"
+                    android:gravity="start|bottom"
+                    android:drawablePadding="5dp"
+                    app:drawableStartCompat="@drawable/ic_location_pin"
+                    android:id="@+id/address_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/millage_tv"
+                    app:layout_constraintStart_toEndOf="@+id/address_tv"
+                    android:drawablePadding="8dp"
+                    app:drawableStartCompat="@drawable/ic_car"
+                    android:gravity="start|bottom"
+                    app:setCondition="@{item.sellingCondition}"
+                    tools:text="Foreign Used"
+                    android:id="@+id/condition_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    style="@style/AppTheme.TextAppearance.Bold"
+                    android:id="@+id/amount_tv"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/interested_btn"
+                    app:layout_constraintTop_toBottomOf="@+id/millage_tv"
+                    android:layout_marginTop="30dp"
+                    tools:text="N2,000,000"
+                    app:setPrice="@{item.marketplacePrice}"
+                    android:textColor="@color/light_dark"
+                    android:textSize="27sp"
+                    android:textStyle="bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/interested_btn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/amount_tv"
+                    android:text="@string/label_view_media"
+                    android:onClick="@{() -> listener.viewMedia(item)}"
+                    android:textColor="@color/light_yellow"
+                    android:background="@drawable/button_dark_bg"
+                    android:textAllCaps="false"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"/>
+
+
+                <TextView
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/amount_tv"
+                    android:id="@+id/vehicle_desc_title"
+                    android:text="@string/label_vehicle_information"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:layout_marginTop="30dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vehicle_desc_title"
+                    app:layout_constraintEnd_toStartOf="@+id/engine_tv"
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/engine_text"
+                    android:text="@string/label_engine_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    style="@style/AppTheme.TextAppearance.Bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/engine_text"
+                    app:layout_constraintStart_toEndOf="@+id/engine_text"
+                    android:gravity="end"
+                    android:text="@{item.engineType}"
+                    android:layout_marginStart="10dp"
+                    android:textStyle="bold"
+                    android:id="@+id/engine_tv"
+                    tools:text="6-Cylinder(v6)"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/engine_tv"
+                    app:layout_constraintEnd_toStartOf="@+id/transmission_tv"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/transmission_text"
+                    android:text="@string/label_transmission"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    style="@style/AppTheme.TextAppearance.Bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/transmission_text"
+                    app:layout_constraintStart_toEndOf="@+id/transmission_text"
+                    android:gravity="end"
+                    android:textStyle="bold"
+                    android:text="@{item.transmission}"
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/transmission_tv"
+                    tools:text="Automatic"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/transmission_tv"
+                    app:layout_constraintEnd_toStartOf="@+id/fuel_tv"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/fuel_text"
+                    android:text="@string/label_fuel_type"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    style="@style/AppTheme.TextAppearance.Bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/fuel_text"
+                    app:layout_constraintStart_toEndOf="@+id/fuel_text"
+                    android:gravity="end"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/fuel_tv"
+                    android:text="@{item.fuelType}"
+                    tools:text="Diesel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fuel_tv"
+                    app:layout_constraintEnd_toStartOf="@+id/interior_tv"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/interior_text"
+                    android:text="@string/label_interior_color"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    style="@style/AppTheme.TextAppearance.Bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/interior_text"
+                    app:layout_constraintStart_toEndOf="@+id/interior_text"
+                    android:gravity="end"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/interior_tv"
+                    android:text="@{item.interiorColor}"
+                    tools:text="Color"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/interior_tv"
+                    app:layout_constraintEnd_toStartOf="@+id/exterior_tv"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/exterior_text"
+                    android:text="@string/label_exterior_color"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    style="@style/AppTheme.TextAppearance.Bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/exterior_text"
+                    app:layout_constraintStart_toEndOf="@+id/exterior_text"
+                    android:gravity="end"
+                    android:textStyle="bold"
+                    android:text="@{item.exteriorColor}"
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/exterior_tv"
+                    tools:text="White"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/exterior_tv"
+                    app:layout_constraintEnd_toStartOf="@+id/vin_tv"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/vin_text"
+                    android:text="@string/label_vin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    style="@style/AppTheme.TextAppearance.Bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/vin_text"
+                    app:layout_constraintStart_toEndOf="@+id/vin_text"
+                    android:gravity="end"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/vin_tv"
+                    tools:text="12345****"
+                    android:text="@{item.vin}"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/vin_tv"
+                    app:layout_constraintEnd_toStartOf="@+id/vehicle_id_tv"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/vehicle_id_text"
+                    android:text="@string/label_vehicle_id"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    style="@style/AppTheme.TextAppearance.Bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/vehicle_id_text"
+                    app:layout_constraintStart_toEndOf="@+id/vehicle_id_text"
+                    android:gravity="end"
+                    android:textStyle="bold"
+                    android:text="@{item.id}"
+                    android:layout_marginStart="10dp"
+                    android:id="@+id/vehicle_id_tv"
+                    tools:text="Hyet672"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    tools:visibility="visible"
+                    android:visibility="gone"
+                    android:id="@+id/features_text"
+                    android:text="@string/label_key_features"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/vehicle_id_tv"
+                    android:layout_marginTop="30dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    tools:visibility="visible"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/features_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="20dp"
+                    app:spanCount="4"
+                    android:id="@+id/feature_recycler"
+                    tools:listitem="@layout/items_car_features"
+                    app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/interested_btn_2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/financing_btn"
+                    app:layout_constraintTop_toBottomOf="@id/feature_recycler"
+                    android:text="@string/label_i_am_interested"
+                    android:onClick="@{() -> listener.onInterested(item)}"
+                    android:textColor="@color/light_yellow"
+                    android:layout_marginTop="40dp"
+                    app:disableView="@{item.sold}"
+                    android:background="@drawable/button_dark_bg"
+                    android:textAllCaps="false"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/financing_btn"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/interested_btn_2"
+                    app:layout_constraintTop_toTopOf="@+id/interested_btn_2"
+                    android:text="@string/label_request_financing"
+                    android:onClick="@{() -> listener.onFinancing(item)}"
+                    android:textColor="@color/light_dark"
+                    android:background="@drawable/button_yellow_bg"
+                    android:textAllCaps="false"
+                    app:disableView="@{item.hasFinancing}"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

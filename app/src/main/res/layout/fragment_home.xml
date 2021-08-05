@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:paddingTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.home.HomeFragment">
+
+        <TextView
+            style="@style/AppTheme.TextAppearance.Bold"
+            app:drawableStartCompat="@drawable/ic_menu"
+            android:text="@string/label_explore"
+            android:drawablePadding="20dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:layout_marginStart="20dp"
+            android:id="@+id/explore_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foreground="?android:attr/selectableItemBackground"
+            tools:ignore="UnusedAttribute" />
+
+        <ImageView
+            android:padding="5dp"
+            android:layout_marginEnd="20dp"
+            app:srcCompat="@drawable/ic_shopping_cart_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:layout_marginStart="20dp"
+            android:id="@+id/search_et"
+            android:drawablePadding="10dp"
+            app:drawableStartCompat="@drawable/ic_baseline_search"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/search_btn"
+            android:layout_marginEnd="20dp"
+            android:hint="@string/label_search"
+            app:layout_constraintTop_toBottomOf="@+id/explore_tv"
+            android:layout_marginTop="10dp"
+            android:layout_width="0dp"
+            android:background="@drawable/search_bg_drawable"
+            android:layout_height="wrap_content"/>
+
+        <ImageButton
+            android:layout_marginEnd="20dp"
+            android:id="@+id/search_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/search_et"
+            app:layout_constraintBottom_toBottomOf="@+id/search_et"
+            android:background="@drawable/button_dark_bg"
+            app:srcCompat="@drawable/ic_baseline_filter"
+            android:layout_width="60dp"
+            android:layout_height="0dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            app:layout_constraintTop_toBottomOf="@+id/search_btn"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            android:id="@+id/status_recycler_view"
+            tools:listitem="@layout/items_status_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            app:layout_constraintTop_toBottomOf="@+id/status_recycler_view"
+            android:paddingBottom="100dp"
+            android:clipToPadding="false"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:id="@+id/items_recycler_view"
+            tools:listitem="@layout/items_home_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

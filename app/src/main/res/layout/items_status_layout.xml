@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="items"
+            type="com.arinzedroid.autochekassessment.model.PopularCarEntity" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/sample"
+            android:id="@+id/image"
+            android:scaleType="centerCrop"
+            app:loadStatusImage="@{items.imageUrl}"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
+        <TextView
+            android:id="@+id/title_tv"
+            app:layout_constraintTop_toBottomOf="@+id/image"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/image"
+            app:layout_constraintEnd_toEndOf="@+id/image"
+            android:gravity="center"
+            tools:text="Sample"
+            android:text="@{items.name}"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

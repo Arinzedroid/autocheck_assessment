@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="light_dark">#0b0a0b</color>
+    <color name="light_purple">#989ac7</color>
+    <color name="light_purple_2">#E6E6F4</color>
+    <color name="light_yellow">#ffcc66</color>
+    <color name="app_white">#F7F7F7</color>
+    <color name="light_brown">#a09faa</color>
+    <color name="white">#ffffff</color>
+    <color name="lighter_purple">#F7F6F9</color>
+    <color name="light_gray">#A8ABB1</color>
+    <color name="black">#323232</color>
+</resources>
